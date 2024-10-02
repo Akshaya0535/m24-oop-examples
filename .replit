@@ -1,8 +1,11 @@
 modules = ["java-graalvm22.3"]
-run = "java -file"
+
+compile = "javac --module-path javafx-sdk-18.0.2/lib --add-modules javafx.controls Main.java"
+run = "java --module-path javafx-sdk-18.0.2/lib --add-modules javafx.controls Main"
+
+entrypoint = "**/*.java"
+hidden = ["**/*.class", "javafx-sdk-18.0.2"]
 
 [nix]
 channel = "stable-24_05"
 
-[deployment]
-run = ["sh", "-c", "java -file"]
